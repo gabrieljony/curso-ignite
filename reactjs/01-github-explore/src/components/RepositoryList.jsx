@@ -1,42 +1,15 @@
 import React from 'react'
+import { RepositoryItem } from './RepositoryItem';
 
 export function RepositoryList() {
     return (
         <section className="repository-list">
             <h1>Lista de repositórios</h1>
             <ul>
-                <li>
-                    <strong>unform</strong>
-                    <p>forms in reactjs</p>
-
-                    <a href="http://">
-                        Acessar repositório
-                       </a>
-                </li>
-                <li>
-                    <strong>unform</strong>
-                    <p>forms in reactjs</p>
-
-                    <a href="http://">
-                        Acessar repositório
-                       </a>
-                </li>
-                <li>
-                    <strong>unform</strong>
-                    <p>forms in reactjs</p>
-
-                    <a href="http://">
-                        Acessar repositório
-                       </a>
-                </li>
-                <li>
-                    <strong>unform</strong>
-                    <p>forms in reactjs</p>
-
-                    <a href="http://">
-                        Acessar repositório
-                       </a>
-                </li>
+                <RepositoryItem repository="unform2"/>
+                <RepositoryItem repository="unform3"/>
+                <RepositoryItem repository="unform4"/>
+                <RepositoryItem repository="unform5"/>
             </ul>
         </section>
     )

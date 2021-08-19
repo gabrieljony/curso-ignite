@@ -2,9 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { RepositoryItem } from './RepositoryItem';
 import '../styles/repositories.scss'
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 // Repositorio do GitHub https://api.github.com/users/gabrieljony/repos
 export function RepositoryList() {
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     // quando estiver com a lista vazia no segundo parametro no useEffect que é a dependencia,
     // quer dizer que vai ser executado uma única vez assim que o component for criado

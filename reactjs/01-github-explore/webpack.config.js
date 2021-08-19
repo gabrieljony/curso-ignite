@@ -9,13 +9,13 @@ module.exports = {
     mode: isDevelopment ? "development" : "production", // "production" | "development" | "none"
     devtool: isDevelopment ? "eval-source-map" : "source-map",
     // Chosen mode tells webpack to use its built-in optimizations accordingly.
-    entry: path.resolve(__dirname, "src", "index.jsx"),
+    entry: path.resolve(__dirname, "src", "index.tsx"),
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js"
     },
     resolve: {
-        extensions: [".js", ".jsx"],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
     },
     devServer: {
         inline: true, // reload na pagina automaticamente
@@ -34,7 +34,7 @@ module.exports = {
             // rules for modules (configure loaders, parser options, etc.)
             {
                 // Conditions:
-                test: /\.jsx?$/,
+                test: /\.(j|t)sx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',

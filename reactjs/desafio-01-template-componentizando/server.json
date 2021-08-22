@@ -29,6 +29,36 @@
       "id": 6,
       "name": "family",
       "title": "Família"
+    },
+    {
+      "id": 7,
+      "name": "family",
+      "title": "Ficção científica"
+    },
+    {
+      "id": 8,
+      "name": "family",
+      "title": "Aventura"
+    },
+    {
+      "id": 9,
+      "name": "family",
+      "title": "Musical"
+    },
+    {
+      "id": 10,
+      "name": "family",
+      "title": "Romance"
+    },
+    {
+      "id": 11,
+      "name": "family",
+      "title": "Fantasia"
+    },
+    {
+      "id": 12,
+      "name": "family",
+      "title": "Policial"
     }
   ],
   "movies": [

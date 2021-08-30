@@ -3,9 +3,9 @@ import { Container } from './styles'
 
 export function TransactionTable() {
     useEffect(() => {
-        fetch('http://localhost:3000/api/transactions')
+        fetch('http://localhost:3000/v1/transactions')
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => console.log("data", data))
     }, [])
 
 

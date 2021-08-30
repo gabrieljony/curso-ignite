@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import { Dashboard } from './components/Dashboard';
 import { Header } from './components/Header';
+import { NewTransactionModal } from './components/NewTransactionModal';
 import { GlobalStyle } from './styles/global';
 
 // Questão de acessibilidade
@@ -15,11 +16,6 @@ export function App() {
       setIsNewTransactionModalOpen(true);
   }
 
-  function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#f00';
-  }
-
   function handleCloseNewTransactionModal() {
       setIsNewTransactionModalOpen(false);
   }
@@ -28,24 +24,10 @@ export function App() {
     <>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
-      <Modal
-          isOpen={isNewTransactionModalOpen}
-          onRequestClose={handleCloseNewTransactionModal}
-          onAfterOpen={afterOpenModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-      >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Cadastrar transação</h2>
-          <button onClick={handleCloseNewTransactionModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-          </form>
-      </Modal>
+      <NewTransactionModal 
+        isOpen={isNewTransactionModalOpen}
+        onCloseNewTransactionModal={handleCloseNewTransactionModal}
+        />
       <GlobalStyle />
     </>
   );

@@ -13,6 +13,16 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    div{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        strong{
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+        }
+    }
 
 
     button {
@@ -25,7 +35,7 @@ export const Content = styled.div`
         height: 3rem;
 
         transition: filter 0.2s;
-        
+
         &:hover {
             filter: brightness(0.9)
 

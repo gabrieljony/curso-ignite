@@ -1,10 +1,11 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext } from 'react';
 import Modal from 'react-modal';
 import fecharImg from '../../assets/fechar.svg'
 import entradasImg from '../../assets/entradas.svg'
 import saidasImg from '../../assets/saidas.svg'
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
 import { api } from '../../services/api';
+import { TransactionsContext } from '../../TransactionsContext';
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -12,12 +13,14 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onCloseNewTransactionModal }: NewTransactionModalProps) {
+    const { createTransaction } = useContext(TransactionsContext)
+    
     const [title, setTitle] = useState('');
     const [value, setValue] = useState(0);
     const [category, setCategory] = useState('');
     const [type, setType] = useState('deposit');
 
-    function handleCreateNewTransaction(event: FormEvent) {
+    async function handleCreateNewTransaction(event: FormEvent) {
         console.log('event', event)
         //previnir a submit do carregamento da tela quando chama o metodo de submit de um formulário
         event.preventDefault();
@@ -29,15 +32,20 @@ export function NewTransactionModal({ isOpen, onCloseNewTransactionModal }: NewT
             category
         })
 
-        const data = {
+        await createTransaction({
             title,
-            value,
+            amount: value,
             type,
             category
-        }
+        })
 
-        api.post('/transactions', data)
-
+        //resetar os valores
+        setTitle('');
+        setValue(0);
+        setCategory('');
+        setType('deposit');
+        //fechar o modal
+        onCloseNewTransactionModal();
 
     }
 

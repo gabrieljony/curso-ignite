@@ -1,30 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
-import { api } from '../../services/api';
+import { useContext } from 'react';
 import { TransactionsContext } from '../../TransactionsContext';
 import { Container } from './styles';
 
-interface Transaction {
-    id: number,
-    title: string,
-    amount: number,
-    type: string,
-    category: string,
-    createdAt: string,
-}
-
 export function TransactionTable() {
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
-    const data = useContext(TransactionsContext);
-    console.log('data', data)
-
-    useEffect(() => {
-        api.get('transactions')
-            .then(response => {
-                console.log("data", response.data.transactions)
-                setTransactions(response.data.transactions)
-            })
-    }, [])
-
+    const transactions = useContext(TransactionsContext);
+    console.log('transactions', transactions)
+    
     function formatPhoneNumber(phone: string) {
         let clean = phone.replace(/[^\d]/g, '');
         let match = clean.match(/^(\d{2})(\d{4,5})(\d{4})$/);

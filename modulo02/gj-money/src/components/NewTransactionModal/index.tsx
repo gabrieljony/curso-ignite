@@ -4,6 +4,7 @@ import fecharImg from '../../assets/fechar.svg'
 import entradasImg from '../../assets/entradas.svg'
 import saidasImg from '../../assets/saidas.svg'
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
+import { api } from '../../services/api';
 
 interface NewTransactionModalProps {
     isOpen: boolean;
@@ -27,6 +28,15 @@ export function NewTransactionModal({ isOpen, onCloseNewTransactionModal }: NewT
             type,
             category
         })
+
+        const data = {
+            title,
+            value,
+            type,
+            category
+        }
+
+        api.post('/transactions', data)
 
 
     }

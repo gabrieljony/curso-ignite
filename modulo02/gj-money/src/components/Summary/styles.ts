@@ -26,7 +26,16 @@ export const Container = styled.div`
             font-size: 2rem;
             font-weight: 500;
             line-height: 3rem;
+            
 
+        }
+
+        .typeDeposits{
+            color: var(--green);
+        }
+
+        .typeWithdraws{
+            color: var(--red);
         }
 
         &.highlight-background{

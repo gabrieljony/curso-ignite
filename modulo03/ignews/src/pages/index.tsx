@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from 'next/image';
 import welcome from '../../public/images/welcome.svg';
@@ -6,6 +6,17 @@ import mulher from '../../public/images/mulher.svg';
 import styles from './home.module.scss'
 import SubscribeButton from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
+
+// 3 formas de fazer um chamada a API:
+
+// 1. Client-side Rendering
+// 2. Server-side Rendering -> toda chamada vai exigir mais processamento da nossa tela para aparecer
+// 3. Static Site Generation
+
+//Exemplo
+//Post do blog
+//Conteúdo do blog (SSG)
+//Comentários (Client-side, pois preciso dos comentários só depois de ser carregado a página)
 
 interface HomeProps {
   product: {
@@ -43,7 +54,7 @@ export default function Home({ product }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   
   // é executado no servidor node.js
   console.log('ok - será mostrado no console.log do terminal não do navegador.')
@@ -63,6 +74,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   return {
       props:{
         product
-      }
+      },
+      revalidate: 60 * 60 * 24, // 24 horas
   }
 }

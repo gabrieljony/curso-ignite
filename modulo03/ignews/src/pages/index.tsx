@@ -3,6 +3,7 @@ import Image from 'next/image';
 import welcome from '../../public/images/welcome.svg';
 import mulher from '../../public/images/mulher.svg';
 import styles from './home.module.scss'
+import SubscribeButton from "../components/SubscribeButton";
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
             Get access to all the publications <br />
             <span>for $9.90 month</span>
           </p>
+
+          <SubscribeButton />
 
         </section>
 

@@ -12,3 +12,10 @@ export default (request: NextApiRequest, response: NextApiResponse) => {
 
     return response.json(users)
 }
+
+// metodos de autenticação
+// JWT (Storage)
+// Next Auth (Social)
+// Cognito, Auth0
+
+// https://next-auth.js.org/providers/github

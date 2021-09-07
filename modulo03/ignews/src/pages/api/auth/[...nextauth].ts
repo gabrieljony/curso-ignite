@@ -15,3 +15,10 @@ export default NextAuth({
     // ...add more providers here
   ],
 })
+
+// FaunaDB - HTTP
+// DynamoDB - AWS
+
+// PostegreSQL, MongoDB
+
+// Front-end ganhando mais responsabilidade
